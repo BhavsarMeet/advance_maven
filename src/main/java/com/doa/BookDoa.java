@@ -47,11 +47,11 @@ public class BookDoa
 	public ArrayList<BookBean> BookDataRetrive()
 	{
 		ArrayList<BookBean> dataofbooks=new ArrayList<BookBean>();
-		conn=DBConnectionMysql.getDBConnection();
+		conn=DBConnectionPostgres.getDBConnection();
 		
 		if(conn!=null)
 		{
-			String selectSQL="select bid,bname,bqty,bprice,aname from book join author where book.aid=author.aid";
+			String selectSQL="select bid,bname,bqty,bprice,aname from book join author on book.aid=author.aid";
 			try {
 				pstmt=conn.prepareStatement(selectSQL);
 				rs=pstmt.executeQuery();
@@ -79,7 +79,7 @@ public class BookDoa
 	public boolean deleteBook(int bId)
 	{
 		boolean flag=false;
-		conn=DBConnectionMysql.getDBConnection();
+		conn=DBConnectionPostgres.getDBConnection();
 		
 		if(conn!=null)
 		{
@@ -105,7 +105,7 @@ public class BookDoa
 	
 	public BookBean getById(int bId)
 	{
-		conn=DBConnectionMysql.getDBConnection();
+		conn=DBConnectionPostgres.getDBConnection();
 		BookBean bb=null;
 		if(conn!=null)
 		{
@@ -136,7 +136,7 @@ public class BookDoa
 	public boolean updateBook(BookBean bb)
 	{
 		boolean flag=false;
-		conn=DBConnectionMysql.getDBConnection();
+		conn=DBConnectionPostgres.getDBConnection();
 		
 		if(conn!=null)
 		{

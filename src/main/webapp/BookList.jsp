@@ -1,6 +1,7 @@
 <%@page import= "java.util.ArrayList" %>
 <%@page import= "com.bean.BookBean" %>
 <%@page import= "com.bean.UsersBean" %>
+<%@page import= "com.bean.AdminBean" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -12,16 +13,16 @@
 </head>
 <body>
 <%
-	UsersBean ub=(UsersBean)session.getAttribute("ub");  
+	AdminBean ab=(AdminBean)session.getAttribute("ab");  
 	
 %>
-<h3><a href="UsersLogoutController">Logout</a></h3>
+<h3><a href="AdminLogoutController">Logout</a></h3>
 <%
-	if(ub!=null)
+	if(ab!=null)
 	{
 		ArrayList<BookBean> listofbooks=(ArrayList)request.getAttribute("booklist");
 %>
-	<h1><%=ub.getuName() %></h1>
+	<h1><%=ab.getaName() %></h1>
 	<table border="2px solid black" bgcolor="yellow" align="center">
 		
 		<tr>
@@ -50,7 +51,7 @@
 				<%	}
 	}else
 	{
-		response.sendRedirect("UsersLogin.jsp");
+		response.sendRedirect("AdminLogin.jsp");
 	}
 				%>		
 		
