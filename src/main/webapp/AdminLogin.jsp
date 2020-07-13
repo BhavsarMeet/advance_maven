@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${Error}
+
 	<form action="AdminLoginController">
 		<table>	
 			<tr>
