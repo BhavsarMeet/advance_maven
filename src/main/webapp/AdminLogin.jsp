@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${Error} 
+<%=request.getAttribute("Error") %>
 	<form action="AdminLoginController">
 		<table>	
 			<tr>
